@@ -15,6 +15,8 @@ resource "github_repository" "this" {
   has_issues             = var.repo_config.has_issues
   has_projects           = var.repo_config.has_projects
   has_wiki               = var.repo_config.has_wiki
+
+  web_commit_signoff_required = var.repo_config.web_commit_signoff_required
 }
 
 resource "github_branch" "this" {

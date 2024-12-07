@@ -32,6 +32,8 @@ variable "repo_config" {
     has_projects           = optional(bool)
     has_wiki               = optional(bool)
 
+    web_commit_signoff_required = optional(bool)
+
     branch_file_enabled = optional(bool, false)
     branch_file         = optional(string, ".branch")
 
