@@ -26,7 +26,7 @@ locals {
   repos = {
     super-project = {
       description    = "My super project"
-      default_branch = "develop"
+      default_branch = "develop" # Must be different from the organization default branch
 
       branches = {
         develop              = {}

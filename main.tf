@@ -54,7 +54,6 @@ resource "github_team_repository" "this" {
   team_id    = can(tonumber(each.value.team)) ? each.value.team : data.github_team.this[each.value.team].id
   repository = github_repository.this.name
   permission = each.value.perm
-
 }
 
 resource "github_repository_file" "branch_file" {
