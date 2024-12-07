@@ -1,0 +1,80 @@
+variable "organization_default_branch" {
+  type        = string
+  description = "The default branch for the organization should be different from the default branch for a repository to avoid conflicts"
+}
+
+variable "enforce_admins_enabled" {
+  type    = bool
+  default = true
+}
+
+variable "repo_name" {
+  type = string
+}
+
+variable "repo_config" {
+  type = object({
+    description    = optional(string)
+    default_branch = optional(string, "main")
+
+    visibility           = optional(string)
+    vulnerability_alerts = optional(bool)
+
+    allow_merge_commit     = optional(bool)
+    allow_rebase_merge     = optional(bool)
+    allow_squash_merge     = optional(bool)
+    allow_update_branch    = optional(bool)
+    archive_on_destroy     = optional(bool)
+    auto_init              = optional(bool, true)
+    delete_branch_on_merge = optional(bool)
+    has_downloads          = optional(bool)
+    has_issues             = optional(bool)
+    has_projects           = optional(bool)
+    has_wiki               = optional(bool)
+
+    branch_file_enabled = optional(bool, false)
+    branch_file         = optional(string, ".branch")
+
+    branches = optional(map(object({
+      allow_deletions                 = optional(bool)
+      allow_force_pushes              = optional(bool)
+      dismiss_stale_reviews           = optional(bool)
+      enforce_admins                  = optional(bool)
+      require_code_owner_reviews      = optional(bool)
+      require_conversation_resolution = optional(bool)
+      required_approving_review_count = optional(number)
+
+      required_status_checks_enabled = optional(bool, false)
+      required_status_checks = optional(object({
+        strict = optional(bool)
+      }), {})
+
+      files = optional(list(object({
+        file    = string
+        content = string
+      })), [])
+    })), {})
+
+    # NOTE: Values for this list must be passed as sensitive
+    deploy_keys = optional(list(object({
+      title     = string
+      key       = string
+      read_only = bool
+    })), [])
+
+    secrets = optional(map(string), {}) # NOTE: Values for this map must be passed as sensitive
+
+    apps = optional(map(object({
+      installation_id = number
+    })), {})
+
+    autolink = optional(object({
+      key_prefix   = string
+      url_template = string
+    }))
+
+    users  = optional(map(string), {})
+    groups = optional(map(string), {}) # NOTE: not implemented
+    teams  = optional(map(string), {}) # NOTE: numerical team names are treated as team ids
+  })
+}
