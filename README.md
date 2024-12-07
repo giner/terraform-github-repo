@@ -58,3 +58,7 @@ terraform {
   }
 }
 ```
+
+## Contributing
+
+This module is not aimed to be complete as much as it is to be useful. If you have a use case that is not covered by this module, please open an issue or a pull request.
