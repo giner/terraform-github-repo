@@ -9,6 +9,10 @@ Requires a personal [token](https://github.com/settings/tokens) with the followi
 - workflow (optional)
 - delete_repo (optional)
 
+In addition to standard GitHub features, this module also supports:
+- Managing [branch files](https://github.com/marketplace/actions/pull-request-target-branch-check)
+- Managing any files in the repo, e.g. workflows for GitHub Action
+
 ## How to run
 
     export GITHUB_TOKEN=$(command to get a token from some secret store)
