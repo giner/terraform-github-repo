@@ -83,7 +83,7 @@ resource "github_branch_protection" "this" {
         branch         = branch_name
         enforce_admins = var.enforce_admins_enabled ? branch_config.enforce_admins : false
       }
-    )
+    ) if branch_config.branch_protection_enabled
   }
 
   repository_id = github_repository.this.node_id # Use of `node_id` instead of `id` or `name` is a workaround for terraform import, see https://github.com/integrations/terraform-provider-github/issues/622
