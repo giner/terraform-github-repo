@@ -39,6 +39,8 @@ variable "repo_config" {
     branch_file         = optional(string)
 
     branches = optional(map(object({
+      branch_protection_enabled = optional(bool)
+
       allow_deletions                 = optional(bool, false)
       allow_force_pushes              = optional(bool, false)
       dismiss_stale_reviews           = optional(bool, true)
