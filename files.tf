@@ -15,4 +15,8 @@ resource "github_repository_file" "file" {
   overwrite_on_create = true
 
   depends_on = [github_branch_protection.this]
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
