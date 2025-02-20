@@ -5,6 +5,7 @@ resource "github_repository" "this" {
   visibility           = var.repo_config.visibility
   vulnerability_alerts = var.repo_config.vulnerability_alerts
 
+  allow_merge_commit     = var.repo_config.allow_merge_commit
   allow_rebase_merge     = var.repo_config.allow_rebase_merge
   allow_squash_merge     = var.repo_config.allow_squash_merge
   allow_update_branch    = var.repo_config.allow_update_branch
