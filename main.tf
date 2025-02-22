@@ -12,6 +12,7 @@ resource "github_repository" "this" {
   archive_on_destroy     = var.repo_config.archive_on_destroy
   auto_init              = var.repo_config.auto_init
   delete_branch_on_merge = var.repo_config.delete_branch_on_merge
+  has_discussions        = var.repo_config.has_discussions
   has_downloads          = var.repo_config.has_downloads
   has_issues             = var.repo_config.has_issues
   has_projects           = var.repo_config.has_projects

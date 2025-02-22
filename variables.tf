@@ -27,6 +27,7 @@ variable "repo_config" {
     archive_on_destroy     = optional(bool)
     auto_init              = optional(bool, true)
     delete_branch_on_merge = optional(bool)
+    has_discussions        = optional(bool)
     has_downloads          = optional(bool)
     has_issues             = optional(bool)
     has_projects           = optional(bool)
