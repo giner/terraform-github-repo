@@ -106,7 +106,8 @@ resource "github_branch_protection" "this" {
     for_each = each.value.required_status_checks_enabled ? [1] : []
 
     content {
-      strict = each.value.required_status_checks.strict
+      strict   = each.value.required_status_checks.strict
+      contexts = each.value.required_status_checks.contexts
     }
   }
 }

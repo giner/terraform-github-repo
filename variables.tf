@@ -51,7 +51,8 @@ variable "repo_config" {
 
       required_status_checks_enabled = optional(bool, false)
       required_status_checks = optional(object({
-        strict = optional(bool)
+        strict   = optional(bool)
+        contexts = optional(set(string))
       }), {})
 
       files = optional(list(object({
