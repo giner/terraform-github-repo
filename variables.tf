@@ -20,6 +20,7 @@ variable "repo_config" {
     visibility           = optional(string)
     vulnerability_alerts = optional(bool)
 
+    allow_auto_merge       = optional(bool)
     allow_merge_commit     = optional(bool)
     allow_rebase_merge     = optional(bool)
     allow_squash_merge     = optional(bool)
