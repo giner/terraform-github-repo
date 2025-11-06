@@ -63,6 +63,16 @@ variable "repo_config" {
       })), [])
     })), {})
 
+    pages = optional(object({
+      build_type = optional(string, "legacy") # options: "legacy", "workflow"
+      cname      = optional(string)
+
+      source = optional(object({
+        branch = string
+        path   = optional(string, "/")
+      }))
+    }))
+
     # NOTE: Values for this list must be passed as sensitive
     deploy_keys = optional(list(object({
       title     = string

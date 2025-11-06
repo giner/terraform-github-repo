@@ -20,6 +20,24 @@ resource "github_repository" "this" {
   has_wiki               = var.repo_config.has_wiki
 
   web_commit_signoff_required = var.repo_config.web_commit_signoff_required
+
+  dynamic "pages" {
+    for_each = var.repo_config.pages != null ? [1] : []
+
+    content {
+      build_type = var.repo_config.pages.build_type
+      cname      = var.repo_config.pages.cname
+
+      dynamic "source" {
+        for_each = var.repo_config.pages.source != null ? [1] : []
+
+        content {
+          branch = var.repo_config.pages.source.branch
+          path   = var.repo_config.pages.source.path
+        }
+      }
+    }
+  }
 }
 
 resource "github_branch" "this" {
