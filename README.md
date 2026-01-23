@@ -16,7 +16,7 @@ In addition to standard GitHub features, this module also supports:
 ## How to run
 
     export GITHUB_TOKEN=$(command to get a token from some secret store)
-    terraform apply --var enforce_admins_enabled=false  # This is only needed when expecting changes in branch files or workflows
+    terraform apply --var enforce_admins_enabled=false  # This is only needed when expecting changes in branch files or workflows on branches which require PRs
     terraform apply
 
 ## Example
