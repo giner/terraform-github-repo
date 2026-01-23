@@ -45,11 +45,13 @@ variable "repo_config" {
 
       allow_deletions                 = optional(bool, false)
       allow_force_pushes              = optional(bool, false)
-      dismiss_stale_reviews           = optional(bool, true)
       enforce_admins                  = optional(bool, true)
-      require_code_owner_reviews      = optional(bool, true)
       require_conversation_resolution = optional(bool, true)
-      required_approving_review_count = optional(number, 1)
+
+      required_pull_request_reviews_enabled = optional(bool, true)
+      dismiss_stale_reviews                 = optional(bool, true)
+      required_approving_review_count       = optional(number, 1)
+      require_code_owner_reviews            = optional(bool, true)
 
       required_status_checks_enabled = optional(bool, true)
       required_status_checks = optional(object({

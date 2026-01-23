@@ -115,10 +115,14 @@ resource "github_branch_protection" "this" {
   allows_force_pushes             = each.value.allow_force_pushes
   require_conversation_resolution = each.value.require_conversation_resolution
 
-  required_pull_request_reviews {
-    dismiss_stale_reviews           = each.value.dismiss_stale_reviews
-    required_approving_review_count = each.value.required_approving_review_count
-    require_code_owner_reviews      = each.value.require_code_owner_reviews
+  dynamic "required_pull_request_reviews" {
+    for_each = each.value.required_pull_request_reviews_enabled ? [1] : []
+
+    content {
+      dismiss_stale_reviews           = each.value.dismiss_stale_reviews
+      required_approving_review_count = each.value.required_approving_review_count
+      require_code_owner_reviews      = each.value.require_code_owner_reviews
+    }
   }
 
   dynamic "required_status_checks" {
