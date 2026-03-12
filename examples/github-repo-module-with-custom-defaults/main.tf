@@ -1,5 +1,5 @@
 module "github_repo" {
-  source = "git::https://github.com/giner/terraform-github-repo?ref=367fa164b7f3bb6ec7d55de039867a5e5dcf031a" # 1.7.0
+  source = "git::https://github.com/giner/terraform-github-repo?ref=4ecfc3d766f20c293858da990a8b8cf5fb7ceffa" # 1.8.0
 
   organization_default_branch = var.organization_default_branch
 
