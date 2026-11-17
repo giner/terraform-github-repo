@@ -26,6 +26,7 @@ variable "repo_config" {
     allow_squash_merge     = optional(bool)
     allow_update_branch    = optional(bool)
     archive_on_destroy     = optional(bool)
+    archived               = optional(bool)
     auto_init              = optional(bool, true)
     delete_branch_on_merge = optional(bool)
     has_discussions        = optional(bool)

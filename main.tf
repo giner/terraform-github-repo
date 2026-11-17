@@ -11,6 +11,7 @@ resource "github_repository" "this" {
   allow_squash_merge     = var.repo_config.allow_squash_merge
   allow_update_branch    = var.repo_config.allow_update_branch
   archive_on_destroy     = var.repo_config.archive_on_destroy
+  archived               = var.repo_config.archived
   auto_init              = var.repo_config.auto_init
   delete_branch_on_merge = var.repo_config.delete_branch_on_merge
   has_discussions        = var.repo_config.has_discussions
